@@ -23,3 +23,6 @@ countIn xs n = map (count n) xs
                 sumaSi l y a
                     | y == l = a + 1
                     | otherwise = a
+
+firstWord :: String -> String
+firstWord xs = (takeWhile (\x -> x /= ' ') (dropWhile (\x -> x == ' ') xs)) 
