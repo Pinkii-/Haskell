@@ -9,7 +9,7 @@ eql l1 l2 = l1 == l2
 
 prod :: [Int] -> Int
 prod [] = 1
-prod xs = foldl (\a x -> a*x) 1 xs
+prod xs = foldl (\x a -> a*x) 1 xs
 
 prodOfEvens :: [Int] -> Int
 prodOfEvens xs = prod (filter even xs)
