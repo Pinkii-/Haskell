@@ -11,7 +11,7 @@ myIterate f a = a:(myIterate f (f a))
 
 myUntil :: (a -> Bool) -> (a -> a) -> a -> a
 myUntil fb fa a
-    | (fb(fa a)) = fa a
+    | (fb a) = a
     | otherwise  = myUntil fb fa (fa a)
 
 myMap :: (a -> b) -> [a] -> [b]
