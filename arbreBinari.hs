@@ -1,4 +1,5 @@
-tt7 = Node 7 Empty Empty
+tt8 = Node 8 Empty Empty
+tt7 = Node 7 Empty tt8
 tt6 = Node 6 Empty Empty
 tt5 = Node 5 Empty Empty
 tt4 = Node 4 Empty Empty
@@ -56,3 +57,6 @@ breadthFirst Empty = []
 breadthFirst (Node n t1 t2) = n:(take 1 $ bF1)++(take 1 $ bF2)++(drop 1 bF1)++(drop 1 bF2)
     where bF1 = breadthFirst t1
           bF2 = breadthFirst t2
+
+
+
