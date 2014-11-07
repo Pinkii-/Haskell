@@ -53,10 +53,13 @@ inOrder Empty = []
 inOrder (Node n t1 t2) = (inOrder t1)++[n]++(inOrder t2)
 
 breadthFirst :: Tree a -> [a]
-breadthFirst Empty = []
-breadthFirst (Node n t1 t2) = n:(take 1 $ bF1)++(take 1 $ bF2)++(drop 1 bF1)++(drop 1 bF2)
-    where bF1 = breadthFirst t1
-          bF2 = breadthFirst t2
-
+breadthFirst a = test [a]
+    where
+        test :: [Tree a] -> [a]
+        test [] = []
+        test (Abuit:xs) = test xs
+        test ((Node n t1 t2):xs) = n:(test(xs++[t1,t2]))
+    
+ 
 
 

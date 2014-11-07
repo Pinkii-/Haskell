@@ -6,8 +6,11 @@ countIf f xs = foldr (\x acc-> (magic f x)+ acc) 0 xs
               | otherwise = 0
               
 pam :: [Int] -> [Int -> Int] -> [[Int]]
-pam xs fs = [[ (f x) | x<-xs] | f<-fs]
+--pam xs fs = [[ (f x) | x<-xs] | f<-fs]
+pam xs fs = map (\f -> (map f xs)) fs
 
+
+-- ($a)
 pam2 :: [Int] -> [Int -> Int] -> [[Int]]
 pam2 xs fs = [[ (f x) | f<-fs] | x<-xs]
 
