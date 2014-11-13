@@ -48,7 +48,15 @@ data RString = RString String
 
 instance Rewrite RString where
     getVars s = [s]
+    
+    valid [] _ = True
     valid sig@((s,i):xs) (RString st) = and (map (\x -> False) sig)-- No se que cojones es una signatura y como se spune que voy a saber si algo es valid
+
+    match (RString s1) (RString s2) = sMatch s1 s2
+        where 
+            sMatch :: String -> String -> [(Position,Substitution a)]
+            sMatch (c1:s1) (c2:s2) =   
+    
     evaluate s = s
 
 --las de mas abajo :> todas las que su camino no es prefijo de otro
