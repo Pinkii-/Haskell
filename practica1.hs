@@ -11,7 +11,7 @@ type Substitution a = [(a,a)]
 
 class Rewrite a where
     getVars :: a -> [a] -- [a] son les variables que apareixen a l'objecte rebut.
-    valid :: Signature -> a -> Bool --Indica si l'objecte esta construir correctament seguir la signatura
+    valid :: Signature -> a -> Bool --Indica si l'objecte esta construit correctament seguir la signatura
     match :: a -> a -> [(Position,Substitution a)] -- indica en quines posicions del segon objecte el primer fa matching amb la corresponent substitucio. Es a dir, que aplicant la substitucio al primer tenim exactament els subobjectes que esta a la posicio
     apply :: a -> Substitution a -> a -- retorna el objecte resultat de substituir les variables pels objectes de la substitucio
     replace :: a -> [(Position,a)] -> a -- retorna el resultat de canviar cada subobjecte del primer parametre en una de les posicions donades per l'objecte que l'acompanya. No hi ha solapament.
@@ -20,14 +20,36 @@ class Rewrite a where
 
 data Rule a = Rule a a
 
+type RewriteSystem a = [Rule a]
+
 instance (Show a) => Show (Rule a) where
     show(Rule a b)= show a ++ " -> " ++ show b
 
-type RewriteSystem a = [Rule a]
 
 validRule :: Rewrite a => Signature -> Rule a -> Bool
+validRule s (Rule a b) = (valid s a) && (valid s b)
 
 validRewriteSystem :: Rewrite a => Signature -> RewriteSystem a -> Bool
+validRewriteSystem s ws = and (map (validRule s) ws)
+
+type Estrategia a = [(Position,a)] -> [(Position,a)]
+
+oneStepRewrite :: Rewrite a => RewriteSystem a -> a -> Estrategia a -> a
+oneStepRewrite rules obj est  = obj -- No se que pide 
+
+rewrite :: Rewrite a => RewriteSystem a -> a -> Estrategia a -> a
+rewrite rules obj est = evaluate(oneStepRewrite rules obj est) -- Esto hasta que acabe ????
+
+nrewrite :: Rewrite a => RewriteSystem a -> a -> Estrategia a -> Int -> a
+nrewrite _ obj _ 0 = obj
+nrewrite rules obj est n = nrewrite rules (evaluate(oneStepRewrite rules obj est)) est (n-1)
+
+data RString = RString String
+
+instance Rewrite RString where
+    getVars s = [s]
+    valid sig@((s,i):xs) (RString st) = and (map (\x -> False) sig)-- No se que cojones es una signatura y como se spune que voy a saber si algo es valid
+    evaluate s = s
 
 --las de mas abajo :> todas las que su camino no es prefijo de otro
 
