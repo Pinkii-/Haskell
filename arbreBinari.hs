@@ -59,7 +59,5 @@ breadthFirst a = test [a]
         test [] = []
         test (Abuit:xs) = test xs
         test ((Node n t1 t2):xs) = n:(test(xs++[t1,t2]))
-    
  
-
 

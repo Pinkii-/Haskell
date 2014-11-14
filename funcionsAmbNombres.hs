@@ -13,6 +13,6 @@ slowFib 1 = 1
 slowFib n = slowFib (n-1) + slowFib (n-2)
 
 quickFib :: Int -> Int
-quickFib = fst.qFib
+quickFib = fst qFib
 qFib 0 = (0, 1)
 qFib x = (b,a+b) where (a,b) = qFib(x-1)
