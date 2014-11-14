@@ -14,10 +14,14 @@ factorials :: [Integer]
 factorials = scanl (\acc x -> acc * x) 1 (drop 1 nats)
 
 fibs :: [Integer]
+<<<<<<< HEAD
 fibs = [0,1]++(aFibs 0 1)
     where
         aFibs :: Integer -> Integer -> [Integer]
         aFibs x y = z:(aFibs y z) where z = x + y
+=======
+fibs = 0 : scanl (+) 1 fibs
+>>>>>>> 9a5316821e40b8ba7b53f322f503c666dc4b6a62
 
 fibss = 0 : scanl (+) 1 fibss
 
