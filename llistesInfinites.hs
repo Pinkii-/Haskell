@@ -13,8 +13,8 @@ triangulars = drop 1 $ scanl (\acc x -> acc + x) 0 (drop 1 nats)
 factorials :: [Integer]
 factorials = scanl (\acc x -> acc * x) 1 (drop 1 nats)
 
---fibs :: [Integer]
---fibs = <
+fibs :: [Integer]
+fibs = 0 : scanl (+) 1 fibs
 
 hacer funcion aux
 

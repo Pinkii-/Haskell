@@ -30,7 +30,7 @@ validRule :: Rewrite a => Signature -> Rule a -> Bool
 validRule s (Rule a b) = (valid s a) && (valid s b)
 
 validRewriteSystem :: Rewrite a => Signature -> RewriteSystem a -> Bool
-validRewriteSystem s ws = and (map (validRule s) ws)
+validRewriteSystem s ws = and $ map (validRule s) ws
 
 type Estrategia a = [(Position,a)] -> [(Position,a)]
 
@@ -38,16 +38,15 @@ oneStepRewrite :: Rewrite a => RewriteSystem a -> a -> Estrategia a -> a
 oneStepRewrite rules obj est  = obj -- No se que pide 
 
 rewrite :: Rewrite a => RewriteSystem a -> a -> Estrategia a -> a
-rewrite rules obj est = evaluate(oneStepRewrite rules obj est) -- Esto hasta que acabe ????
+rewrite rules obj est = dropWhile (/=) $ iterate (evaluate(oneStepRewrite rules obj est)) obj -- Acaba cuando hay dos seguidos iguales
 
 nrewrite :: Rewrite a => RewriteSystem a -> a -> Estrategia a -> Int -> a
-nrewrite _ obj _ 0 = obj
-nrewrite rules obj est n = nrewrite rules (evaluate(oneStepRewrite rules obj est)) est (n-1)
+nrewrite rules obj est n = take n $ iterate (evaluate(oneStepRewrite rules obj est)) obj
 
 data RString = RString String
 
 instance Rewrite RString where
-    getVars s = [s]
+    getVars s = []
     
     valid [] _ = True
     valid sig@((s,i):xs) (RString st) = and (map (\x -> False) sig)-- No se que cojones es una signatura y como se spune que voy a saber si algo es valid
@@ -55,7 +54,7 @@ instance Rewrite RString where
     match (RString s1) (RString s2) = sMatch s1 s2
         where 
             sMatch :: String -> String -> [(Position,Substitution a)]
-            sMatch (c1:s1) (c2:s2) =   
+            sMatch (c1:s1) (c2:s2) = 
     
     evaluate s = s
 
