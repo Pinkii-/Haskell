@@ -11,7 +11,7 @@ type Substitution a = [(a,a)]
 
 class Rewrite a where
     getVars :: a -> [a] -- [a] son les variables que apareixen a l'objecte rebut.
-    valid :: Signature -> a -> Bool --Indica si l'objecte esta construit correctament seguir la signatura
+    valid :: Signature -> a -> Bool --Indica si l'objecte esta construit correctament seguint la signatura
     match :: a -> a -> [(Position,Substitution a)] -- indica en quines posicions del segon objecte el primer fa matching amb la corresponent substitucio. Es a dir, que aplicant la substitucio al primer tenim exactament els subobjectes que esta a la posicio
     apply :: a -> Substitution a -> a -- retorna el objecte resultat de substituir les variables pels objectes de la substitucio
     replace :: a -> [(Position,a)] -> a -- retorna el resultat de canviar cada subobjecte del primer parametre en una de les posicions donades per l'objecte que l'acompanya. No hi ha solapament.
@@ -37,11 +37,15 @@ type Estrategia a = [(Position,a)] -> [(Position,a)]
 oneStepRewrite :: Rewrite a => RewriteSystem a -> a -> Estrategia a -> a
 oneStepRewrite rules obj est  = obj -- No se que pide 
 
-rewrite :: Rewrite a => RewriteSystem a -> a -> Estrategia a -> a
-rewrite rules obj est = dropWhile (/=) $ iterate (evaluate(oneStepRewrite rules obj est)) obj -- Acaba cuando hay dos seguidos iguales
+auxrewrite :: Rewrite a => RewriteSystem a -> a -> Estrategia a -> [a]
+auxrewrite rules obj est = iterate (\x -> evaluate(oneStepRewrite rules x est)) obj
+
+--rewrite :: Rewrite a => RewriteSystem a -> a -> Estrategia a -> a
+--rewrite rules obj est = take 1 $ dropWhile ((/=) (drop 1 $ todos)) $ todos
+--    where todos = auxrewrite rules obj est
 
 nrewrite :: Rewrite a => RewriteSystem a -> a -> Estrategia a -> Int -> a
-nrewrite rules obj est n = take n $ iterate (evaluate(oneStepRewrite rules obj est)) obj
+nrewrite rules obj est n = last $ take n $ auxrewrite rules obj est
 
 data RString = RString String
 
@@ -51,10 +55,10 @@ instance Rewrite RString where
     valid [] _ = True
     valid sig@((s,i):xs) (RString st) = and (map (\x -> False) sig)-- No se que cojones es una signatura y como se spune que voy a saber si algo es valid
 
-    match (RString s1) (RString s2) = sMatch s1 s2
-        where 
-            sMatch :: String -> String -> [(Position,Substitution a)]
-            sMatch (c1:s1) (c2:s2) = 
+--    match (RString s1) (RString s2) = sMatch s1 s2
+--        where 
+--            sMatch :: String -> String -> [(Position,Substitution a)]
+--            sMatch (c1:s1) (c2:s2) = 
     
     evaluate s = s
 
