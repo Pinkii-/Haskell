@@ -38,7 +38,7 @@ isomorphic (Node _ _ _) Empty = False
 isomorphic Empty (Node _ _ _) = False
 isomorphic (Node a t1 t2) (Node b y1 y2) = sinRotar || rotado
     where sinRotar = (isomorphic t1 y1) && (isomorphic t2 y2)
-          rotado   = (isomorphic t1 y2) && (isomorphic t1 y2)
+          rotado   = (isomorphic t1 y2) && (isomorphic t2 y1)
 
 preOrder :: Tree a -> [a]
 preOrder Empty = []
