@@ -13,8 +13,8 @@ class Rewrite a where
     getVars :: a -> [a] -- [a] son les variables que apareixen a l'objecte rebut.
     valid :: Signature -> a -> Bool --Indica si l'objecte esta construit correctament seguint la signatura
     match :: a -> a -> [(Position,Substitution a)] -- indica en quines posicions del segon objecte el primer fa matching amb la corresponent substitucio. Es a dir, que aplicant la substitucio al primer tenim exactament els subobjectes que esta a la posicio
-    apply :: a -> Substitution a -> a -- retorna el objecte resultat de substituir les variables pels objectes de la substitucio
-    replace :: a -> [(Position,a)] -> a -- retorna el resultat de canviar cada subobjecte del primer parametre en una de les posicions donades per l'objecte que l'acompanya. No hi ha solapament.
+--    apply :: a -> Substitution a -> a -- retorna el objecte resultat de substituir les variables pels objectes de la substitucio
+--    replace :: a -> [(Position,a)] -> a -- retorna el resultat de canviar cada subobjecte del primer parametre en una de les posicions donades per l'objecte que l'acompanya. No hi ha solapament.
     evaluate :: a -> a -- retorna el resultat d'haver avaluat l'objecte segons alguns simbols predefinits, que no es tracten amb regles de reescritura
 
 
@@ -62,7 +62,7 @@ instance Rewrite RString where
     getVars s = []
     
     valid [] _ = True
-    valid sig@((s,i):xs) (RString st) = and (map (existeSignature sig) (simbolos st []))
+    valid sig (RString st) = and (map (existeSignature sig) (simbolos st []))
         where
             existeSignature :: Signature -> String -> Bool
             existeSignature [] _ = False
@@ -71,17 +71,28 @@ instance Rewrite RString where
                 | otherwise = existeSignature xs s
 
             simbolos :: String -> String -> [String]
+            simbolos [] [] = [[]]
             simbolos [] s = [s]
             simbolos (x:xs) [] = simbolos xs [x]
-            ssimbolos s1@(x:xs) s2
-                | isDigit x = simbolos xs s2++x
+            simbolos s1@(x:xs) s2
+                | isDigit x = simbolos xs (s2++[x])
                 | otherwise = s2:(simbolos xs [x]) 
+            isDigit c
+                | c >= '0' && c <= '9' = True
+                | otherwise = False
+
+
+
 --    match (RString s1) (RString s2) = sMatch s1 s2
 --        where 
 --            sMatch :: String -> String -> [(Position,Substitution a)]
 --            sMatch (c1:s1) (c2:s2) = 
     
---    evaluate s = s
+    evaluate s = s
+
+
+
+
 
 readRString :: String -> RString
 readRString s = RString s
