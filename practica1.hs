@@ -35,12 +35,12 @@ validRewriteSystem s ws = and $ map (validRule s) ws
 type Estrategia a = [(Position,a)] -> [(Position,a)]
 
 oneStepRewrite :: Rewrite a => RewriteSystem a -> a -> Estrategia a -> a
-oneStepRewrite rules obj est = applyObjSubstitution obj $ matchObjRewriteS rules obj
-    where
-        matchObjRewriteS :: RewriteSystem a -> a -> [(Position,Substitution a)]
-        matchObjRewriteS rules obj = concat $ map (\(Rule a _) -> match obj a) rules
-        applyObjSubstitution :: a -> [(Position, Substitution a)] -> [a]
-        applyObjSubstitution obj l = map (apply obj) [ snd s | s <- l]
+oneStepRewrite rules obj est = obj --applyObjSubstitution obj $ matchObjRewriteS rules obj
+--    where
+--        matchObjRewriteS :: RewriteSystem a -> a -> [(Position,Substitution a)]
+--        matchObjRewriteS rules obj = concat $ map (\(Rule a _) -> match obj a) rules
+--        applyObjSubstitution :: a -> [(Position, Substitution a)] -> [a]
+--        applyObjSubstitution obj l = map (apply obj) [ snd s | s <- l]
 --        filtraPorStrat :: Estrategia a -> [a] -> [a]
 
 --buscar de la paerte izquierda de la regla, el match con el objeto y devuelve possubstitucion. Filtrar por la estrategia, que se le pasa la pos, y obj original.
@@ -58,12 +58,24 @@ nrewrite rules obj est n = last $ take n $ auxrewrite rules obj est
 
 data RString = RString String
 
---instance Rewrite RString where
---    getVars s = []
+instance Rewrite RString where
+    getVars s = []
     
---    valid [] _ = True
---    valid sig@((s,i):xs) (RString st) = and (map (\x -> ) sig)-- No se que cojones es una signatura y como se spune que voy a saber si algo es valid
+    valid [] _ = True
+    valid sig@((s,i):xs) (RString st) = and (map (existeSignature sig) (simbolos st []))
+        where
+            existeSignature :: Signature -> String -> Bool
+            existeSignature [] _ = False
+            existeSignature (x:xs) s
+                | fst x == s = True
+                | otherwise = existeSignature xs s
 
+            simbolos :: String -> String -> [String]
+            simbolos [] s = [s]
+            simbolos (x:xs) [] = simbolos xs [x]
+            ssimbolos s1@(x:xs) s2
+                | isDigit x = simbolos xs s2++x
+                | otherwise = s2:(simbolos xs [x]) 
 --    match (RString s1) (RString s2) = sMatch s1 s2
 --        where 
 --            sMatch :: String -> String -> [(Position,Substitution a)]
@@ -80,7 +92,22 @@ readRStringSystem l = map (\x -> (Rule (readRString (fst x)) (readRString (snd x
 instance Show (RString) where
     show(RString s)= tail $ init $ (show s)
 
-data RTerm a = RTerm a [Rterm a]
+
+myStringSignature :: Signature
+myStringSignature = [("b",0),("w",0),("r",0)]
+
+myStringSystem = readRStringSystem [
+  ("wb" , "bw" ),
+  ("rb" , "br" ),
+  ("rw" , "wr" )
+  ]
+
+myRString = readRString "wrrbbwrrwwbbwrbrbww" 
+
+----------------------------------------------------------------------------------------------
+
+
+data RTerm a = RTerm a [RTerm a]
 
 --las de mas abajo :> todas las que su camino no es prefijo de otro
 
