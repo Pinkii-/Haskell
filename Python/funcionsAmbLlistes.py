@@ -3,3 +3,6 @@ def myLength(L):
     for _ in L:
         x += 1
     return x
+
+def myMaximum(L):
+    
