@@ -17,7 +17,7 @@ def suma(L):
     suma = 0.0;
     for x in L:
         suma += x
-    return x
+    return suma
 
 def average(L):
     return suma(L)/myLength(L)
@@ -61,9 +61,7 @@ def oddsNevens(L):
             odds.append(l)
         else:
             evens.append(l)
-    aux = []
-    aux.append(evens)    
-    aux.append(odds)
+    aux = (evens,odds)
     return aux
 
 def primeDivisors(n):
@@ -77,8 +75,8 @@ def primeDivisors(n):
             if (number % i) == 0:
                 L.append(i)
                 baux = True
-                number = number/i
+                while (number % i == 0): number = number/i
                 break
         divisible = baux
-    L.append(number)
+    if (number != 1): L.append(number)
     return L
