@@ -20,7 +20,6 @@ class Event(object):
 		print '   data', self.data
 		print '   interesos', self.intereses
 		
-
 def getEvents():
 	url = 'http://w10.bcn.es/APPS/asiasiacache/peticioXmlAsia?id=199'
 	xmlGetter = UrlProcessor(url)
@@ -52,7 +51,8 @@ def getEvents():
 	return events
 
 def removeAccents(s):
-	return ''.join(x for x in unicodedata.normalize('NFKD',s))
+	uS = unicode(s)
+	return unicodedata.normalize('NFKD', uS).encode('ascii', 'ignore')
 
 def mNormalize(s):
 	s = removeAccents(s)
@@ -61,7 +61,7 @@ def mNormalize(s):
 def getGoodEvents():
 	events = getEvents()
 	entrada = sys.argv[1]
-	entrada = mNormalize(entrada)
+	entrada = entrada.lower().strip()
 	restriccions = entrada.split(",")
 	goodEvents = []
 	import unicodedata
