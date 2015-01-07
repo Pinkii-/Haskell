@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<smc datacreacio="26-12-2014 15:00:00">
+  <comarca id="1" nomCOMARCA="L'Alt Camp" nomCAPITALCO="Valls"/>
+  <comarca id="2" nomCOMARCA="L'Alt Empordà" nomCAPITALCO="Figueres"/>
+  <comarca id="3" nomCOMARCA="L'Alt Penedès" nomCAPITALCO="Vilafranca del Penedès"/>
+  <comarca id="4" nomCOMARCA="L'Alt Urgell" nomCAPITALCO="La Seu d'Urgell"/>
+  <comarca id="5" nomCOMARCA="L'Alta Ribagorça" nomCAPITALCO="El Pont de Suert"/>
+  <comarca id="6" nomCOMARCA="L'Anoia" nomCAPITALCO="Igualada"/>
+  <comarca id="7" nomCOMARCA="El Bages" nomCAPITALCO="Manresa"/>
+  <comarca id="8" nomCOMARCA="El Baix Camp" nomCAPITALCO="Reus"/>
+  <comarca id="9" nomCOMARCA="El Baix Ebre" nomCAPITALCO="Tortosa"/>
+  <comarca id="10" nomCOMARCA="El Baix Empordà" nomCAPITALCO="La Bisbal d'Empordà"/>
+  <comarca id="11" nomCOMARCA="El Baix Llobregat" nomCAPITALCO="Sant Feliu de Llobregat"/>
+  <comarca id="12" nomCOMARCA="El Baix Penedès" nomCAPITALCO="El Vendrell"/>
+  <comarca id="13" nomCOMARCA="El Barcelonès" nomCAPITALCO="Barcelona"/>
+  <comarca id="14" nomCOMARCA="El Berguedà" nomCAPITALCO="Berga"/>
+  <comarca id="15" nomCOMARCA="La Cerdanya" nomCAPITALCO="Puigcerdà"/>
+  <comarca id="16" nomCOMARCA="La Conca de Barberà" nomCAPITALCO="Montblanc"/>
+  <comarca id="17" nomCOMARCA="El Garraf" nomCAPITALCO="Vilanova i la Geltrú"/>
+  <comarca id="18" nomCOMARCA="Les Garrigues" nomCAPITALCO="Les Borges Blanques"/>
+  <comarca id="19" nomCOMARCA="La Garrotxa" nomCAPITALCO="Olot"/>
+  <comarca id="20" nomCOMARCA="El Gironès" nomCAPITALCO="Girona"/>
+  <comarca id="21" nomCOMARCA="El Maresme" nomCAPITALCO="Mataró"/>
+  <comarca id="22" nomCOMARCA="El Montsià" nomCAPITALCO="Amposta"/>
+  <comarca id="23" nomCOMARCA="La Noguera" nomCAPITALCO="Balaguer"/>
+  <comarca id="24" nomCOMARCA="Osona" nomCAPITALCO="Vic"/>
+  <comarca id="25" nomCOMARCA="EL Pallars Jussà" nomCAPITALCO="Tremp"/>
+  <comarca id="26" nomCOMARCA="El Pallars Sobirà" nomCAPITALCO="Sort"/>
+  <comarca id="27" nomCOMARCA="El Pla de l'Estany" nomCAPITALCO="Banyoles"/>
+  <comarca id="28" nomCOMARCA="El Pla d'Urgell" nomCAPITALCO="Mollerussa"/>
+  <comarca id="29" nomCOMARCA="El Priorat" nomCAPITALCO="Falset"/>
+  <comarca id="30" nomCOMARCA="La Ribera d'Ebre" nomCAPITALCO="Móra d'Ebre"/>
+  <comarca id="31" nomCOMARCA="El Ripollès" nomCAPITALCO="Ripoll"/>
+  <comarca id="32" nomCOMARCA="La Segarra" nomCAPITALCO="Cervera"/>
+  <comarca id="33" nomCOMARCA="El Segrià" nomCAPITALCO="Lleida"/>
+  <comarca id="34" nomCOMARCA="La Selva" nomCAPITALCO="Santa Coloma de Farners"/>
+  <comarca id="35" nomCOMARCA="El Solsonès" nomCAPITALCO="Solsona"/>
+  <comarca id="36" nomCOMARCA="El Tarragonès" nomCAPITALCO="Tarragona"/>
+  <comarca id="37" nomCOMARCA="La Terra Alta" nomCAPITALCO="Gandesa"/>
+  <comarca id="38" nomCOMARCA="L'Urgell" nomCAPITALCO="Tàrrega"/>
+  <comarca id="39" nomCOMARCA="La Val d'Aran" nomCAPITALCO="Vielha e Mijaran"/>
+  <comarca id="40" nomCOMARCA="El Vallès Occidental" nomCAPITALCO="Sabadell/Terrassa"/>
+  <comarca id="41" nomCOMARCA="El Vallès Oriental" nomCAPITALCO="Granollers"/>
+  <simbol id="1" nomsimbol="sol"/>
+  <simbol id="2" nomsimbol="sol i núvols alts"/>
+  <simbol id="3" nomsimbol="entre poc i mig ennuvolat"/>
+  <simbol id="4" nomsimbol="molt cobert"/>
+  <simbol id="5" nomsimbol="plugim"/>
+  <simbol id="6" nomsimbol="pluja"/>
+  <simbol id="7" nomsimbol="xàfec"/>
+  <simbol id="8" nomsimbol="tempesta"/>
+  <simbol id="9" nomsimbol="tempesta calamarsa"/>
+  <simbol id="10" nomsimbol="neu"/>
+  <simbol id="11" nomsimbol="boira"/>
+  <simbol id="12" nomsimbol="boirina"/>
+  <simbol id="13" nomsimbol="xàfec neu"/>
+  <simbol id="20" nomsimbol="entre mig i molt ennuvolat"/>
+  <simbol id="21" nomsimbol="cobert"/>
+  <simbol id="22" nomsimbol="calitja"/>
+  <simbol id="23" nomsimbol="ruixat"/>
+  <simbol id="24" nomsimbol="xàfec amb tempesta"/>
+  <simbol id="25" nomsimbol="xàfec"/>
+  <simbol id="26" nomsimbol="ruixat"/>
+  <simbol id="27" nomsimbol="neu feble"/>
+  <simbol id="28" nomsimbol="tempesta neu"/>
+  <simbol id="29" nomsimbol="xàfec"/>
+  <simbol id="30" nomsimbol="aiguaneu"/>
+  <simbol id="31" nomsimbol="ruixat"/>
+  <simbol id="32" nomsimbol="plugim"/>
+  <tempesta id="1" nomprobtempmati="Baix" nomprobtemptarda="Baix"/>
+  <tempesta id="2" nomprobtempmati="Moderat" nomprobtemptarda="Moderat"/>
+  <tempesta id="3" nomprobtempmati="Alt" nomprobtemptarda="Alt"/>
+  <tempesta id="4" nomprobtempmati="Molt alt" nomprobtemptarda="Molt alt"/>
+  <calamarsa id="1" nomprobcalamati="Baix" nomprobcalatarda="Baix"/>
+  <calamarsa id="2" nomprobcalamati="Moderat" nomprobcalatarda="Moderat"/>
+  <calamarsa id="3" nomprobcalamati="Alt" nomprobcalatarda="Alt"/>
+  <calamarsa id="4" nomprobcalamati="Molt alt" nomprobcalatarda="Molt alt"/>
+  <prediccio idcomarca="1">
+    <variable data="27-12-2014" dia="1" simbolmati="3.png" simboltarda="2.png" tempmax="13" tempmin="4" probcalamati="1" probcalatarda="1"/>
+    <variable data="28-12-2014" dia="2" simbolmati="1.png" simboltarda="1.png" tempmax="11" tempmin="-1" probcalamati="1" probcalatarda="1"/>
+  </prediccio>
+  <prediccio idcomarca="2">
+    <variable data="27-12-2014" dia="1" simbolmati="3.png" simboltarda="20.png" tempmax="13" tempmin="3" probcalamati="1" probcalatarda="1"/>
+    <variable data="28-12-2014" dia="2" simbolmati="3.png" simboltarda="1.png" tempmax="10" tempmin="2" probcalamati="1" probcalatarda="1"/>
+  </prediccio>
+  <prediccio idcomarca="3">
+    <variable data="27-12-2014" dia="1" simbolmati="3.png" simboltarda="2.png" tempmax="12" tempmin="5" probcalamati="1" probcalatarda="1"/>
+    <variable data="28-12-2014" dia="2" simbolmati="1.png" simboltarda="1.png" tempmax="10" tempmin="3" probcalamati="1" probcalatarda="1"/>
+  </prediccio>
+  <prediccio idcomarca="4">
+    <variable data="27-12-2014" dia="1" simbolmati="20.png" simboltarda="26.png" tempmax="11" tempmin="0" probcalamati="1" probcalatarda="1"/>
+    <variable data="28-12-2014" dia="2" simbolmati="26.png" simboltarda="1.png" tempmax="7" tempmin="-6" probcalamati="1" probcalatarda="1"/>
+  </prediccio>
+  <prediccio idcomarca="5">
+    <variable data="27-12-2014" dia="1" simbolmati="20.png" simboltarda="10.png" tempmax="9" tempmin="-3" probcalamati="1" probcalatarda="1"/>
+    <variable data="28-12-2014" dia="2" simbolmati="20.png" simboltarda="20.png" tempmax="5" tempmin="-7" probcalamati="1" probcalatarda="1"/>
+  </prediccio>
+  <prediccio idcomarca="6">
+    <variable data="27-12-2014" dia="1" simbolmati="3.png" simboltarda="2.png" tempmax="10" tempmin="1" probcalamati="1" probcalatarda="1"/>
+    <variable data="28-12-2014" dia="2" simbolmati="1.png" simboltarda="1.png" tempmax="9" tempmin="-1" probcalamati="1" probcalatarda="1"/>
+  </prediccio>
+  <prediccio idcomarca="7">
+    <variable data="27-12-2014" dia="1" simbolmati="3.png" simboltarda="20.png" tempmax="11" tempmin="-2" probcalamati="1" probcalatarda="1"/>
+    <variable data="28-12-2014" dia="2" simbolmati="1.png" simboltarda="1.png" tempmax="9" tempmin="-2" probcalamati="1" probcalatarda="1"/>
+  </prediccio>
+  <prediccio idcomarca="8">
+    <variable data="27-12-2014" dia="1" simbolmati="3.png" simboltarda="2.png" tempmax="14" tempmin="7" probcalamati="1" probcalatarda="1"/>
+    <variable data="28-12-2014" dia="2" simbolmati="1.png" simboltarda="1.png" tempmax="13" tempmin="4" probcalamati="1" probcalatarda="1"/>
+  </prediccio>
+  <prediccio idcomarca="9">
+    <variable data="27-12-2014" dia="1" simbolmati="2.png" simboltarda="2.png" tempmax="16" tempmin="8" probcalamati="1" probcalatarda="1"/>
+    <variable data="28-12-2014" dia="2" simbolmati="1.png" simboltarda="1.png" tempmax="13" tempmin="4" probcalamati="1" probcalatarda="1"/>
+  </prediccio>
+  <prediccio idcomarca="10">
+    <variable data="27-12-2014" dia="1" simbolmati="3.png" simboltarda="3.png" tempmax="14" tempmin="3" probcalamati="1" probcalatarda="1"/>
+    <variable data="28-12-2014" dia="2" simbolmati="1.png" simboltarda="1.png" tempmax="11" tempmin="2" probcalamati="1" probcalatarda="1"/>
+  </prediccio>
+  <prediccio idcomarca="11">
+    <variable data="27-12-2014" dia="1" simbolmati="3.png" simboltarda="2.png" tempmax="14" tempmin="7" probcalamati="1" probcalatarda="1"/>
+    <variable data="28-12-2014" dia="2" simbolmati="1.png" simboltarda="1.png" tempmax="12" tempmin="5" probcalamati="1" probcalatarda="1"/>
+  </prediccio>
+  <prediccio idcomarca="12">
+    <variable data="27-12-2014" dia="1" simbolmati="3.png" simboltarda="2.png" tempmax="14" tempmin="6" probcalamati="1" probcalatarda="1"/>
+    <variable data="28-12-2014" dia="2" simbolmati="1.png" simboltarda="1.png" tempmax="13" tempmin="4" probcalamati="1" probcalatarda="1"/>
+  </prediccio>
+  <prediccio idcomarca="13">
+    <variable data="27-12-2014" dia="1" simbolmati="3.png" simboltarda="2.png" tempmax="14" tempmin="8" probcalamati="1" probcalatarda="1"/>
+    <variable data="28-12-2014" dia="2" simbolmati="1.png" simboltarda="1.png" tempmax="12" tempmin="5" probcalamati="1" probcalatarda="1"/>
+  </prediccio>
+  <prediccio idcomarca="14">
+    <variable data="27-12-2014" dia="1" simbolmati="3.png" simboltarda="20.png" tempmax="9" tempmin="-2" probcalamati="1" probcalatarda="1"/>
+    <variable data="28-12-2014" dia="2" simbolmati="3.png" simboltarda="1.png" tempmax="6" tempmin="-5" probcalamati="1" probcalatarda="1"/>
+  </prediccio>
+  <prediccio idcomarca="15">
+    <variable data="27-12-2014" dia="1" simbolmati="20.png" simboltarda="27.png" tempmax="6" tempmin="-4" probcalamati="1" probcalatarda="1"/>
+    <variable data="28-12-2014" dia="2" simbolmati="26.png" simboltarda="1.png" tempmax="1" tempmin="-9" probcalamati="1" probcalatarda="1"/>
+  </prediccio>
+  <prediccio idcomarca="16">
+    <variable data="27-12-2014" dia="1" simbolmati="3.png" simboltarda="2.png" tempmax="11" tempmin="2" probcalamati="1" probcalatarda="1"/>
+    <variable data="28-12-2014" dia="2" simbolmati="1.png" simboltarda="1.png" tempmax="10" tempmin="-3" probcalamati="1" probcalatarda="1"/>
+  </prediccio>
+  <prediccio idcomarca="17">
+    <variable data="27-12-2014" dia="1" simbolmati="3.png" simboltarda="2.png" tempmax="13" tempmin="6" probcalamati="1" probcalatarda="1"/>
+    <variable data="28-12-2014" dia="2" simbolmati="1.png" simboltarda="1.png" tempmax="12" tempmin="4" probcalamati="1" probcalatarda="1"/>
+  </prediccio>
+  <prediccio idcomarca="18">
+    <variable data="27-12-2014" dia="1" simbolmati="3.png" simboltarda="2.png" tempmax="9" tempmin="2" probcalamati="1" probcalatarda="1"/>
+    <variable data="28-12-2014" dia="2" simbolmati="1.png" simboltarda="1.png" tempmax="8" tempmin="-3" probcalamati="1" probcalatarda="1"/>
+  </prediccio>
+  <prediccio idcomarca="19">
+    <variable data="27-12-2014" dia="1" simbolmati="3.png" simboltarda="20.png" tempmax="10" tempmin="-1" probcalamati="1" probcalatarda="1"/>
+    <variable data="28-12-2014" dia="2" simbolmati="3.png" simboltarda="1.png" tempmax="7" tempmin="-2" probcalamati="1" probcalatarda="1"/>
+  </prediccio>
+  <prediccio idcomarca="20">
+    <variable data="27-12-2014" dia="1" simbolmati="3.png" simboltarda="3.png" tempmax="13" tempmin="-2" probcalamati="1" probcalatarda="1"/>
+    <variable data="28-12-2014" dia="2" simbolmati="1.png" simboltarda="1.png" tempmax="9" tempmin="-3" probcalamati="1" probcalatarda="1"/>
+  </prediccio>
+  <prediccio idcomarca="21">
+    <variable data="27-12-2014" dia="1" simbolmati="3.png" simboltarda="2.png" tempmax="13" tempmin="7" probcalamati="1" probcalatarda="1"/>
+    <variable data="28-12-2014" dia="2" simbolmati="1.png" simboltarda="1.png" tempmax="12" tempmin="3" probcalamati="1" probcalatarda="1"/>
+  </prediccio>
+  <prediccio idcomarca="22">
+    <variable data="27-12-2014" dia="1" simbolmati="2.png" simboltarda="2.png" tempmax="16" tempmin="9" probcalamati="1" probcalatarda="1"/>
+    <variable data="28-12-2014" dia="2" simbolmati="1.png" simboltarda="1.png" tempmax="13" tempmin="6" probcalamati="1" probcalatarda="1"/>
+  </prediccio>
+  <prediccio idcomarca="23">
+    <variable data="27-12-2014" dia="1" simbolmati="3.png" simboltarda="3.png" tempmax="10" tempmin="0" probcalamati="1" probcalatarda="1"/>
+    <variable data="28-12-2014" dia="2" simbolmati="1.png" simboltarda="1.png" tempmax="9" tempmin="-2" probcalamati="1" probcalatarda="1"/>
+  </prediccio>
+  <prediccio idcomarca="24">
+    <variable data="27-12-2014" dia="1" simbolmati="11.png" simboltarda="20.png" tempmax="9" tempmin="-2" probcalamati="1" probcalatarda="1"/>
+    <variable data="28-12-2014" dia="2" simbolmati="11.png" simboltarda="1.png" tempmax="7" tempmin="-3" probcalamati="1" probcalatarda="1"/>
+  </prediccio>
+  <prediccio idcomarca="25">
+    <variable data="27-12-2014" dia="1" simbolmati="3.png" simboltarda="20.png" tempmax="11" tempmin="-3" probcalamati="1" probcalatarda="1"/>
+    <variable data="28-12-2014" dia="2" simbolmati="3.png" simboltarda="1.png" tempmax="8" tempmin="-4" probcalamati="1" probcalatarda="1"/>
+  </prediccio>
+  <prediccio idcomarca="26">
+    <variable data="27-12-2014" dia="1" simbolmati="20.png" simboltarda="10.png" tempmax="9" tempmin="-2" probcalamati="1" probcalatarda="1"/>
+    <variable data="28-12-2014" dia="2" simbolmati="27.png" simboltarda="20.png" tempmax="5" tempmin="-6" probcalamati="1" probcalatarda="1"/>
+  </prediccio>
+  <prediccio idcomarca="27">
+    <variable data="27-12-2014" dia="1" simbolmati="3.png" simboltarda="2.png" tempmax="10" tempmin="2" probcalamati="1" probcalatarda="1"/>
+    <variable data="28-12-2014" dia="2" simbolmati="1.png" simboltarda="1.png" tempmax="9" tempmin="-1" probcalamati="1" probcalatarda="1"/>
+  </prediccio>
+  <prediccio idcomarca="28">
+    <variable data="27-12-2014" dia="1" simbolmati="3.png" simboltarda="20.png" tempmax="12" tempmin="2" probcalamati="1" probcalatarda="1"/>
+    <variable data="28-12-2014" dia="2" simbolmati="3.png" simboltarda="1.png" tempmax="8" tempmin="0" probcalamati="1" probcalatarda="1"/>
+  </prediccio>
+  <prediccio idcomarca="29">
+    <variable data="27-12-2014" dia="1" simbolmati="3.png" simboltarda="2.png" tempmax="10" tempmin="3" probcalamati="1" probcalatarda="1"/>
+    <variable data="28-12-2014" dia="2" simbolmati="1.png" simboltarda="1.png" tempmax="9" tempmin="-1" probcalamati="1" probcalatarda="1"/>
+  </prediccio>
+  <prediccio idcomarca="30">
+    <variable data="27-12-2014" dia="1" simbolmati="3.png" simboltarda="2.png" tempmax="13" tempmin="3" probcalamati="1" probcalatarda="1"/>
+    <variable data="28-12-2014" dia="2" simbolmati="1.png" simboltarda="1.png" tempmax="12" tempmin="-1" probcalamati="1" probcalatarda="1"/>
+  </prediccio>
+  <prediccio idcomarca="31">
+    <variable data="27-12-2014" dia="1" simbolmati="3.png" simboltarda="27.png" tempmax="9" tempmin="-1" probcalamati="1" probcalatarda="1"/>
+    <variable data="28-12-2014" dia="2" simbolmati="26.png" simboltarda="1.png" tempmax="6" tempmin="-3" probcalamati="1" probcalatarda="1"/>
+  </prediccio>
+  <prediccio idcomarca="32">
+    <variable data="27-12-2014" dia="1" simbolmati="3.png" simboltarda="3.png" tempmax="9" tempmin="-1" probcalamati="1" probcalatarda="1"/>
+    <variable data="28-12-2014" dia="2" simbolmati="1.png" simboltarda="1.png" tempmax="8" tempmin="-4" probcalamati="1" probcalatarda="1"/>
+  </prediccio>
+  <prediccio idcomarca="33">
+    <variable data="27-12-2014" dia="1" simbolmati="3.png" simboltarda="2.png" tempmax="11" tempmin="2" probcalamati="1" probcalatarda="1"/>
+    <variable data="28-12-2014" dia="2" simbolmati="1.png" simboltarda="1.png" tempmax="9" tempmin="-1" probcalamati="1" probcalatarda="1"/>
+  </prediccio>
+  <prediccio idcomarca="34">
+    <variable data="27-12-2014" dia="1" simbolmati="3.png" simboltarda="3.png" tempmax="12" tempmin="1" probcalamati="1" probcalatarda="1"/>
+    <variable data="28-12-2014" dia="2" simbolmati="1.png" simboltarda="1.png" tempmax="8" tempmin="-1" probcalamati="1" probcalatarda="1"/>
+  </prediccio>
+  <prediccio idcomarca="35">
+    <variable data="27-12-2014" dia="1" simbolmati="3.png" simboltarda="20.png" tempmax="9" tempmin="-4" probcalamati="1" probcalatarda="1"/>
+    <variable data="28-12-2014" dia="2" simbolmati="3.png" simboltarda="1.png" tempmax="6" tempmin="-6" probcalamati="1" probcalatarda="1"/>
+  </prediccio>
+  <prediccio idcomarca="36">
+    <variable data="27-12-2014" dia="1" simbolmati="3.png" simboltarda="2.png" tempmax="15" tempmin="6" probcalamati="1" probcalatarda="1"/>
+    <variable data="28-12-2014" dia="2" simbolmati="1.png" simboltarda="1.png" tempmax="14" tempmin="3" probcalamati="1" probcalatarda="1"/>
+  </prediccio>
+  <prediccio idcomarca="37">
+    <variable data="27-12-2014" dia="1" simbolmati="3.png" simboltarda="2.png" tempmax="11" tempmin="6" probcalamati="1" probcalatarda="1"/>
+    <variable data="28-12-2014" dia="2" simbolmati="1.png" simboltarda="1.png" tempmax="9" tempmin="1" probcalamati="1" probcalatarda="1"/>
+  </prediccio>
+  <prediccio idcomarca="38">
+    <variable data="27-12-2014" dia="1" simbolmati="11.png" simboltarda="2.png" tempmax="9" tempmin="0" probcalamati="1" probcalatarda="1"/>
+    <variable data="28-12-2014" dia="2" simbolmati="1.png" simboltarda="1.png" tempmax="8" tempmin="-3" probcalamati="1" probcalatarda="1"/>
+  </prediccio>
+  <prediccio idcomarca="39">
+    <variable data="27-12-2014" dia="1" simbolmati="4.png" simboltarda="10.png" tempmax="5" tempmin="0" probcalamati="1" probcalatarda="1"/>
+    <variable data="28-12-2014" dia="2" simbolmati="10.png" simboltarda="27.png" tempmax="1" tempmin="-7" probcalamati="1" probcalatarda="1"/>
+  </prediccio>
+  <prediccio idcomarca="40">
+    <variable data="27-12-2014" dia="1" simbolmati="3.png" simboltarda="2.png" tempmax="12" tempmin="0" probcalamati="1" probcalatarda="1"/>
+    <variable data="28-12-2014" dia="2" simbolmati="1.png" simboltarda="1.png" tempmax="9" tempmin="1" probcalamati="1" probcalatarda="1"/>
+  </prediccio>
+  <prediccio idcomarca="41">
+    <variable data="27-12-2014" dia="1" simbolmati="3.png" simboltarda="3.png" tempmax="12" tempmin="0" probcalamati="1" probcalatarda="1"/>
+    <variable data="28-12-2014" dia="2" simbolmati="1.png" simboltarda="1.png" tempmax="10" tempmin="-1" probcalamati="1" probcalatarda="1"/>
+  </prediccio>
+</smc>
