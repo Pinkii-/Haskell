@@ -1,5 +1,4 @@
 #!/usr/bin/python
-# -*- coding: UTF-8 -*-
 
 import sys
 import urllib2
@@ -129,12 +128,14 @@ def getGoodEvents():
 	restriccions = entrada.split(",")
 	goodEvents = []
 	import unicodedata
+
 	for event in events:
 		toAdd = True
 		for res in restriccions:
 			r = res.split(":")
 			if (r[0] == 'nom'):
 				toAdd = toAdd & (r[1] in mNormalize(event.nom))
+
 			elif (r[0] == 'barri'):
 				toAdd = toAdd & (r[1] in mNormalize(event.barri))
 			elif (r[0] == 'lloc'): 
@@ -211,10 +212,6 @@ def getGoodBus(event, buses):
 				newBus = True
 		if newBus:
 			validBusWithoutRep.append(bus)
-
-	for v in validBusWithoutRep:
-		print v[1], v[0].EQUIPAMENT
-
 	return validBusWithoutRep
 
 """Metro"""
@@ -259,9 +256,6 @@ def getGoodMetro(event, metros):
 		if newMetro:
 			validMetroWithoutRep.append(metro)
 
-	for v in validMetroWithoutRep:
-		print v[1], v[0].EQUIPAMENT
-
 	return validMetroWithoutRep
 
 """Bicing"""
@@ -281,7 +275,8 @@ def loadBicing():
 			if (bic.tag == 'lat' or bic.tag == 'long' or bic.tag == 'status' or 
 				bic.tag == 'slots' or bic.tag == 'bikes' or bic.tag == 'street'):
 				b.__setattr__(bic.tag,bic.text)
-		bicing.append(b)
+		if b.status == 'OPN':
+			bicing.append(b)
 	return bicing
 
 def getDist(bicing):
@@ -305,12 +300,13 @@ def getValidBicing(event, bicings):
 
 def drawWeb(events, weathers, buses, metros, bicings):
 	with open('index.html','w') as html:
-		html
 		html.write('<html><body>')
+		html.write('<h1> Busqueda realizada </h1>')
+		html.write('<h2>'+sys.argv[1]+'</h2>')
 		for event in events:
 			if event.lat == ' ' or event.lon == ' ':
 				continue
-			html.write('<p> -------------------------------------------------------- <br> <h1> Evento </h1>')
+			html.write('<p> -------------------------------------------------------- <h1> Evento </h1>')
 			html.write('<b>'+event.nom+'</b><br> (')
 			html.write('Direccio: '+event.carrer+' ')
 			html.write(event.numero+', ')
@@ -318,7 +314,8 @@ def drawWeb(events, weathers, buses, metros, bicings):
 			html.write(event.codi_postal+', ')
 			html.write(event.municipi+' ')
 			html.write(')<br> ')
-			html.write(' Data: '+ event.data+'</p>')
+			html.write(' Data: '+ event.data+'<br>') 
+			html.write('Latitud: <b>'+event.lat+'</b> <br>Longitud <b>'+event.lon+'</b></p>')
 
 			dayAndHour = event.data.split(' ')
 			someWeather = None
@@ -347,27 +344,71 @@ def drawWeb(events, weathers, buses, metros, bicings):
 				html.write('<h2> Bicing </h2>')
 				html.write('<h3> Bicings con slots vacios</h3>')
 				if len(vBicingSlot) == 0:
-					html.write('<p> Parece que no hay ningun bicing cerca con slots vacios')
+					html.write('<p> Parece que no hay ningun bicing cerca con slots vacios </p>')
 				else:
 					html.write('<table> <tr>')
-					html.write('<th> ')
+					html.write('<th> Distancia </th>')
+					html.write('<th> Latitud </th>')
+					html.write('<th> Longitud </th>')
+					html.write('<th> Slots </th> </tr>')
+					for station in vBicingSlot[:5]:
+						html.write('<tr>')
+						html.write('<td>'+str(station[1])+'</td>')
+						html.write('<td>'+station[0].lat+'</td>')
+						html.write('<td>'+station[0].long+'</td>')
+						html.write('<td>'+station[0].slots+'</td></tr>')
+					html.write('</table>')
 
-				
-					
+				html.write('<h3> Bicings con bicis disponibles </h3>')
+				if len(vBicingBike) == 0:
+					html.write('<p> Parece que no hay ningun bicing cerca con bicis disponibles</p>')
+				else:
+					html.write('<table> <tr>')
+					html.write('<th> Distancia </th>')
+					html.write('<th> Latitud </th>')
+					html.write('<th> Longitud </th>')
+					html.write('<th> Slots </th> </tr>')
+					for station in vBicingBike[:5]:
+						html.write('<tr>')
+						html.write('<td>'+str(station[1])+'</td>')
+						html.write('<td>'+station[0].lat+'</td>')
+						html.write('<td>'+station[0].long+'</td>')
+						html.write('<td>'+station[0].slots+'</td></tr>')
+					html.write('</table>')
 
-			print 'Estaciones con slots a esta distancia'
-				for station in vBicingSlot[:5]:
-					print station[1]
-
-			print 'Estaciones con bicis a esta distancia'
-				for station in vBicingBike[:5]:
-					print station[1]
-
-			print 'Buses:'
 			if llueve == None or llueve == True or len(vBicingBike) == 0 or len(vBicingSlot) == 0:
 				bus = getGoodBus(event,buses)
+				html.write('<h2> Transporte Publico </h2>')
+				html.write('<h3> Buses </h3>')
+
+				html.write('<table> <tr>')
+				html.write('<th> Distancia </th>')
+				html.write('<th> Latitud </th>')
+				html.write('<th> Longitud </th>')
+				html.write('<th> Linias </th> </tr>')
+				for b in bus:
+					html.write('<tr>')
+					html.write('<td>'+str(b[1])+'</td>')
+					html.write('<td>'+b[0].LATITUD+'</td>')
+					html.write('<td>'+b[0].LONGITUD+'</td>')
+					html.write('<td>'+b[0].EQUIPAMENT+'</td></tr>')
+				html.write('</table>')
 				metro = getGoodMetro(event,metros)
-			
+				html.write('<h3> Metros </h3>')
+				html.write('<table> <tr>')
+				html.write('<th> Distancia </th>')
+				html.write('<th> Latitud </th>')
+				html.write('<th> Longitud </th>')
+				html.write('<th> Linias </th> </tr>')
+				for m in metro:
+					html.write('<tr>')
+					html.write('<td>'+str(m[1])+'</td>')
+					html.write('<td>'+m[0].LATITUD+'</td>')
+					html.write('<td>'+m[0].LONGITUD+'</td>')
+					html.write('<td>'+m[0].EQUIPAMENT+'</td></tr>')
+				html.write('</table>')
+
+		html.write('<p style="text-align:right"> Gonzalo Diez Garrido, Practica de</p>')
 		html.write('</body></html>')
 
 
@@ -377,11 +418,17 @@ def drawWeb(events, weathers, buses, metros, bicings):
 """Main"""
 
 def main():
+	print "Hello :D Voy a cargar los eventos y elegir los que me has pedido."
 	eventosElegidos = getGoodEvents()
+	print "Cargando la meteorologia"
 	isRainingMen = getMeteo()
+	print "Cargando los buses"
 	bus = loadBus()
+	print "Cargando los metros"
 	metro = loadMetro()
+	print "Cargando los Bicing"
 	bicing =  loadBicing()
+	print "Construyendo la web con todos los datos"
 	drawWeb(eventosElegidos, isRainingMen,bus,metro,bicing)
 
 
