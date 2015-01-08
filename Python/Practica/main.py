@@ -1,10 +1,12 @@
 #!/usr/bin/python
+# -*- coding: UTF-8 -*-
 
 import sys
 import urllib2
 import xml.etree.ElementTree as ET
 import unicodedata
 import csv
+from math import radians, cos, sin, asin, sqrt
 
 """utils"""
 
@@ -33,6 +35,21 @@ def mNormalize(s):
 	s = removeAccents(s)
 	return s.lower().strip()
 
+def getDistance(lat_1,lon_1,lat_2,lon_2):
+	lat1 = radians(float(lat_1))
+	lon1 = radians(float(lon_1))
+	lat2 = radians(float(lat_2))
+	lon2 = radians(float(lon_2))
+
+	distLat = lat2 - lat1
+	distLon = lon2 - lon1
+
+	a = sin(distLat/2)**2 + cos(lat1) * cos(lat2) * sin(distLon/2)**2
+	c = 2 * asin(sqrt(a))
+
+	km = 6367 * c
+	return float(km*1000)
+
 """Events"""
 
 class Event(object):
@@ -42,6 +59,24 @@ class Event(object):
 		print '   geolocalizazion', self.lat, self.lon
 		print '   data', self.data
 		print '   interesos', self.intereses
+
+	def normaliceEvent(self):
+		if self.nom == None:
+			self.nom = ''
+		if self.carrer == None:
+			self.carrer = ''
+		if self.numero == None:
+			self.numero = ''
+		if self.districte == None:
+			self.districte = ''
+		if self.codi_postal == None:
+			self.codi_postal = ''
+		if self.municipi == None:
+			self.municipi = ''
+		self.makeAddress()
+
+	def makeAddress(self):
+		self.direccio = self.carrer+' '+self.numero+' '+self.districte+' '+self.codi_postal+' '+self.municipi		
 		
 def getEvents():
 	url = 'http://w10.bcn.es/APPS/asiasiacache/peticioXmlAsia?id=199'
@@ -70,6 +105,7 @@ def getEvents():
 				e.__setattr__('intereses', [])
 				for interes in ele:
 					e.intereses.append(interes.text)
+		e.normaliceEvent()
 		events.append(e)
 	return events
 
@@ -181,22 +217,47 @@ def loadBicing():
 		bicing.append(b)
 	return bicing
 
+def getValidBicing(event, bicings):
+	validBicing = []
+	for bicing in bicings:
+		if getDistance(event.lat, event.lon, bicing.lat, bicing.long) < 500:
+			validBicing.append(bicing)
+			print getDistance(event.lat, event.lon, bicing.lat, bicing.long)
+	return validBicing
+
 """Web"""
 
 def drawWeb(events, weathers, buses, metros, bicings):
-	with open('index.html','w') as html:
-		html.write('<html><body><table>')
+	# with open('index.html','w') as html:
+	# 	html.encode('utf-8')
+	# 	html.write('<html><body><table>')
 		for event in events:
-			html.write('<tr><td><b>'+event.nom+'</b><br> ('+
-				event.carrer+' '+event.numero+' '+event.districte+' '+event.codi_postal+' '+event.municipi)
-
+			# html.write('<tr><td><b>'+event.nom+'</b><br> ('+ event.direccio)
+				# event.carrer+' '+event.numero+' '+event.districte+' '+event.codi_postal+' '+event.municipi)
+			print '\n \n ------------------------------------------------------------------'
+			event.printEvent()
 
 			dayAndHour = event.data.split(' ')
 			someWeather = None
 			for weather in weathers:
 				if dayAndHour[0] == weather[0]:
 					someWeather = weather
-			print someWeather, dayAndHour[0], event.nom
+
+			llueve = None
+			if someWeather != None:
+				hours = someWeather[2].split(':')
+				hour = int(hours[0])
+				if hour > 14 or hour <= 2:
+					llueve = True if int(someWeather[2]) > 1 else False
+				else:
+					llueve = True if int(someWeather[1]) > 1 else False
+			if llueve == None or llueve == False:
+				vBicing = getValidBicing(event, bicings)
+			
+				
+
+
+
 
 
 """Main"""
